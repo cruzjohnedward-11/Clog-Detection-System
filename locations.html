@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations - Drainage Clog Detection System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] flex h-screen overflow-hidden text-slate-800">
+
+    <aside class="w-64 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
+        <div>
+            <div class="p-6 mb-2">
+                <h1 class="text-lg font-semibold leading-tight">Drainage Clog<br>Detection System</h1>
+                <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">DRRM Monitoring</p>
+            </div>
+            <nav class="flex-1 px-3 space-y-1">
+                <a href="overview.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Overview</a>
+                <a href="locations.html" class="flex items-center px-4 py-2.5 bg-[#2563eb] text-white text-sm font-medium rounded-md shadow-sm">Drainage Locations</a>
+                <a href="telemetry.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Live Telemetry</a>
+                <a href="alerts.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Alerts</a>
+                <a href="analytics.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">ML Analytics</a>
+                <a href="settings.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors mt-4">Settings</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
+        <header class="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+            <div class="text-xs font-bold text-slate-400 tracking-widest uppercase">Pasig City • Drainage Network</div>
+            <div class="flex items-center text-xs font-medium text-emerald-600"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>Synced just now</div>
+        </header>
+
+        <div class="p-8 max-w-7xl mx-auto w-full space-y-6">
+            <div>
+                <h2 class="text-2xl font-semibold text-slate-800">Drainage Locations</h2>
+                <p class="text-sm text-slate-500 mt-1">Browse monitored nodes, current state, and geographic coverage.</p>
+            </div>
+
+            <div class="flex space-x-4">
+                <input type="text" placeholder="Search location or node" class="flex-1 px-4 py-2 border border-slate-200 rounded-lg text-sm">
+                <select class="w-48 px-4 py-2 border border-slate-200 rounded-lg text-sm bg-white"><option>All statuses</option></select>
+                <select class="w-48 px-4 py-2 border border-slate-200 rounded-lg text-sm bg-white"><option>All barangays</option></select>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-2 min-h-[400px] flex flex-col relative bg-slate-50 overflow-hidden">
+                    <div class="flex justify-between items-center mb-8 relative z-10">
+                        <h3 class="font-semibold text-slate-800">Network Schematic</h3>
+                        <span class="text-xs text-slate-400">Pasig City coverage</span>
+                    </div>
+                    <div class="absolute inset-0 top-20 flex flex-col justify-between py-12 px-10">
+                        <div class="w-full h-0.5 bg-blue-200 relative"><div class="absolute -top-3 left-[15%] w-6 h-6 rounded-full bg-emerald-500 border-4 border-white text-white text-[10px] flex items-center justify-center font-bold">1</div></div>
+                        <div class="w-full h-0.5 bg-blue-200 relative"><div class="absolute -top-3 left-[35%] w-6 h-6 rounded-full bg-amber-500 border-4 border-white text-white text-[10px] flex items-center justify-center font-bold">2</div></div>
+                        <div class="w-full h-1.5 bg-blue-600 relative"><div class="absolute -top-3 left-[55%] w-6 h-6 rounded-full bg-red-500 border-4 border-white text-white text-[10px] flex items-center justify-center font-bold">3</div></div>
+                        <div class="w-full h-0.5 bg-blue-200 relative"><div class="absolute -top-3 left-[75%] w-6 h-6 rounded-full bg-slate-400 border-4 border-white text-white text-[10px] flex items-center justify-center font-bold">4</div></div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex justify-between items-start">
+                        <div>
+                            <h4 class="font-medium text-slate-800">Pinagbuhatan</h4>
+                            <p class="text-xs text-slate-500 mt-1">Drain Node 03</p>
+                            <p class="text-[10px] text-slate-400 mt-2">Barangay San Antonio</p>
+                        </div>
+                        <span class="px-2 py-1 bg-emerald-50 text-emerald-700 text-xs font-medium rounded border border-emerald-100">Normal</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex justify-between items-start">
+                        <div>
+                            <h4 class="font-medium text-slate-800">Kapitolyo</h4>
+                            <p class="text-xs text-slate-500 mt-1">Drain Node 08</p>
+                            <p class="text-[10px] text-slate-400 mt-2">Barangay Kapitolyo</p>
+                        </div>
+                        <span class="px-2 py-1 bg-amber-50 text-amber-700 text-xs font-medium rounded border border-amber-100">Watch</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-red-200 bg-red-50/30 shadow-sm flex justify-between items-start">
+                        <div>
+                            <h4 class="font-medium text-slate-800">Rosario</h4>
+                            <p class="text-xs text-slate-500 mt-1">Drain Node 14</p>
+                            <p class="text-[10px] text-slate-400 mt-2">Barangay Rosario</p>
+                        </div>
+                        <span class="px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded border border-red-200">Clog Detected</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex justify-between items-start opacity-70">
+                        <div>
+                            <h4 class="font-medium text-slate-800">Manggahan</h4>
+                            <p class="text-xs text-slate-500 mt-1">Drain Node 21</p>
+                            <p class="text-[10px] text-slate-400 mt-2">Barangay Manggahan</p>
+                        </div>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded border border-slate-200">Offline</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

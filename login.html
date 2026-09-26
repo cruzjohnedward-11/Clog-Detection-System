@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Drainage Clog Detection System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex h-screen w-screen overflow-hidden">
+    <!-- Left Branding Panel -->
+    <div class="w-5/12 bg-[#112a46] text-white flex flex-col justify-between p-12">
+        <div>
+            <h1 class="text-4xl font-semibold leading-tight mb-2">Drainage Clog<br>Detection System</h1>
+            <p class="text-slate-400 text-lg">Real-time drainage intelligence</p>
+        </div>
+        <div>
+            <p class="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2">Disaster Risk Reduction & Management</p>
+            <p class="text-sm text-slate-400 max-w-sm leading-relaxed">Monitor drainage conditions, detect clogs early, and coordinate a faster civic response.</p>
+        </div>
+    </div>
+
+    <!-- Right Login Panel -->
+    <div class="w-7/12 bg-[#f8fafc] flex items-center justify-center">
+        <div class="bg-white p-10 rounded-xl shadow-lg border border-slate-100 w-full max-w-md">
+            <h2 class="text-2xl font-semibold text-slate-800 mb-1">Sign in to monitoring</h2>
+            <p class="text-sm text-slate-500 mb-8">Use your authorized agency account.</p>
+
+            <form class="space-y-5">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Email address</label>
+                    <input type="email" value="officer@drrm.gov.ph" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-blue-500" readonly>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
+                    <input type="password" value="••••••••••••" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-blue-500" readonly>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Role</label>
+                    <select class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-blue-500 appearance-none bg-white">
+                        <option>DRRM Officer</option>
+                    </select>
+                </div>
+                
+                <div class="flex items-center justify-between mt-6">
+                    <label class="flex items-center text-xs text-slate-600">
+                        <input type="checkbox" class="mr-2 rounded border-slate-300">
+                        Remember this device
+                    </label>
+                    <a href="#" class="text-xs text-blue-600 font-medium">Forgot password?</a>
+                </div>
+
+                <button type="button" onclick="window.location.href='overview.html'" class="mt-4 w-full px-6 py-2 bg-[#2563eb] hover:bg-blue-700 text-white text-sm font-medium rounded-md transition-colors">
+                    Sign In
+                </button>
+            </form>
+
+            <p class="text-center text-[10px] text-slate-400 mt-8 max-w-xs mx-auto">Protected government system. Activity is logged and monitored for security.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Telemetry - Drainage Clog Detection System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] flex h-screen overflow-hidden text-slate-800">
+
+    <aside class="w-64 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
+        <div>
+            <div class="p-6 mb-2">
+                <h1 class="text-lg font-semibold leading-tight">Drainage Clog<br>Detection System</h1>
+                <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">DRRM Monitoring</p>
+            </div>
+            <nav class="flex-1 px-3 space-y-1">
+                <a href="overview.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Overview</a>
+                <a href="locations.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Drainage Locations</a>
+                <a href="telemetry.html" class="flex items-center px-4 py-2.5 bg-[#2563eb] text-white text-sm font-medium rounded-md shadow-sm">Live Telemetry</a>
+                <a href="alerts.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Alerts</a>
+                <a href="analytics.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">ML Analytics</a>
+                <a href="settings.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors mt-4">Settings</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
+        <header class="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+            <div class="text-xs font-bold text-slate-400 tracking-widest uppercase">Pasig City • Drainage Network</div>
+            <div class="flex items-center text-xs font-medium text-emerald-600"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>Synced just now</div>
+        </header>
+
+        <div class="p-8 max-w-7xl mx-auto w-full space-y-6">
+            <div class="flex justify-between items-end">
+                <div>
+                    <h2 class="text-2xl font-semibold text-slate-800">Live Telemetry</h2>
+                    <p class="text-sm text-slate-500 mt-1">San Antonio Drain Node 03 • SAN-03</p>
+                </div>
+                <div class="text-xs text-slate-400">Last packet: <span class="text-slate-800 font-medium">Not available</span></div>
+            </div>
+            
+            <div class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 text-xs rounded-full border border-slate-200">Waiting for sensor input</div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">Water Level</h3>
+                    <div class="text-3xl font-bold text-slate-800">0 %</div>
+                    <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-wide">Ultrasonic sensor</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">Flow</h3>
+                    <div class="text-3xl font-bold text-slate-800">0 L/s</div>
+                    <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-wide">No sensor reading</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">Depth</h3>
+                    <div class="text-3xl font-bold text-slate-800">0 cm</div>
+                    <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-wide">No sensor reading</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">Battery</h3>
+                    <div class="text-3xl font-bold text-slate-800">0 %</div>
+                    <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-wide">No sensor reading</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">ML Confidence</h3>
+                    <div class="text-3xl font-bold text-slate-800">0 %</div>
+                    <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-wide">No sensor reading</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm min-h-[400px] flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-semibold text-slate-800">Real-time Sensor Stream</h3>
+                    <span class="text-xs text-slate-400">0 samples received</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center justify-center border border-dashed border-slate-200 rounded-lg chart-bg bg-slate-50 text-center p-8 relative">
+                    <div class="w-full max-w-md h-0.5 bg-slate-200 mb-2"></div>
+                    <div class="w-full max-w-sm h-0.5 bg-slate-200 mb-2"></div>
+                    <div class="w-full max-w-lg h-0.5 bg-slate-200 mb-6"></div>
+                    
+                    <p class="text-sm font-medium text-slate-600 mb-1 z-10 bg-slate-50 px-4">Waiting for sensor input</p>
+                    <p class="text-xs text-slate-400 z-10 bg-slate-50 px-4">The chart will populate when the node reconnects and begins transmitting.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Analytics - Drainage Clog Detection System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] flex h-screen overflow-hidden text-slate-800">
+
+    <aside class="w-64 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
+        <div>
+            <div class="p-6 mb-2">
+                <h1 class="text-lg font-semibold leading-tight">Drainage Clog<br>Detection System</h1>
+                <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">DRRM Monitoring</p>
+            </div>
+            <nav class="flex-1 px-3 space-y-1">
+                <a href="overview.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Overview</a>
+                <a href="locations.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Drainage Locations</a>
+                <a href="telemetry.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Live Telemetry</a>
+                <a href="alerts.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Alerts</a>
+                <a href="analytics.html" class="flex items-center px-4 py-2.5 bg-[#2563eb] text-white text-sm font-medium rounded-md shadow-sm">ML Analytics</a>
+                <a href="settings.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors mt-4">Settings</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
+        <header class="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+            <div class="text-xs font-bold text-slate-400 tracking-widest uppercase">Pasig City • Drainage Network</div>
+            <div class="flex items-center text-xs font-medium text-emerald-600"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>Synced just now</div>
+        </header>
+
+        <div class="p-8 max-w-7xl mx-auto w-full space-y-6">
+            <div>
+                <h2 class="text-2xl font-semibold text-slate-800">ML Model Analytics</h2>
+                <p class="text-sm text-slate-500 mt-1">Evaluate clog-detection performance, features, and model versions.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800">DrainClog Classifier</h3>
+                    <p class="text-xs text-slate-500 mt-1">Version v1.4.2 • Random Forest • Last trained Aug 28, 2026</p>
+                </div>
+                <div class="flex space-x-3 items-center">
+                    <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-medium rounded-full border border-emerald-100">Production</span>
+                    <button class="px-4 py-2 bg-[#2563eb] hover:bg-blue-700 text-white text-sm font-medium rounded-md shadow-sm transition-colors">Retrain Model</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">Accuracy</h3>
+                    <div class="text-3xl font-bold text-slate-800 mb-2">0%</div>
+                    <p class="text-[10px] text-slate-400">Awaiting evaluation data</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">Precision</h3>
+                    <div class="text-3xl font-bold text-slate-800 mb-2">0%</div>
+                    <p class="text-[10px] text-slate-400">Awaiting evaluation data</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">Recall</h3>
+                    <div class="text-3xl font-bold text-slate-800 mb-2">0%</div>
+                    <p class="text-[10px] text-slate-400">Awaiting evaluation data</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-2">F1 Score</h3>
+                    <div class="text-3xl font-bold text-slate-800 mb-2">0%</div>
+                    <p class="text-[10px] text-slate-400">Awaiting evaluation data</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-semibold text-slate-800">Confusion Matrix</h3>
+                        <span class="text-xs text-slate-400">All values: 0</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center pt-4">
+                        <div class="grid grid-cols-4 gap-2 text-center text-xs font-medium text-slate-500 w-full max-w-sm">
+                            <div></div><div>Normal</div><div>Watch</div><div>Clog</div>
+                            <div class="flex items-center justify-end pr-4">Normal</div><div class="bg-slate-100 p-4 rounded text-slate-400">0</div><div class="bg-slate-50 p-4 rounded text-slate-400">0</div><div class="bg-slate-50 p-4 rounded text-slate-400">0</div>
+                            <div class="flex items-center justify-end pr-4">Watch</div><div class="bg-slate-50 p-4 rounded text-slate-400">0</div><div class="bg-slate-100 p-4 rounded text-slate-400">0</div><div class="bg-slate-50 p-4 rounded text-slate-400">0</div>
+                            <div class="flex items-center justify-end pr-4">Clog</div><div class="bg-slate-50 p-4 rounded text-slate-400">0</div><div class="bg-slate-50 p-4 rounded text-slate-400">0</div><div class="bg-slate-100 p-4 rounded text-slate-400">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-semibold text-slate-800">Class Distribution</h3>
+                        <span class="text-xs text-slate-400">0 samples</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1"><span class="font-medium text-slate-700">Normal</span><span class="text-slate-400">0%</span></div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full"></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1"><span class="font-medium text-slate-700">Watch</span><span class="text-slate-400">0%</span></div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full"></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1"><span class="font-medium text-slate-700">Clog detected</span><span class="text-slate-400">0%</span></div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-2">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-semibold text-slate-800">Feature Importance</h3>
+                        <span class="text-xs text-slate-400">Zeroed</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center"><span class="w-24 text-xs font-medium text-slate-700">Water level</span><div class="flex-1 bg-slate-100 h-2.5 rounded-full mx-4"></div><span class="text-xs text-slate-400 w-8 text-right">0%</span></div>
+                        <div class="flex items-center"><span class="w-24 text-xs font-medium text-slate-700">Flow rate</span><div class="flex-1 bg-slate-100 h-2.5 rounded-full mx-4"></div><span class="text-xs text-slate-400 w-8 text-right">0%</span></div>
+                        <div class="flex items-center"><span class="w-24 text-xs font-medium text-slate-700">Depth</span><div class="flex-1 bg-slate-100 h-2.5 rounded-full mx-4"></div><span class="text-xs text-slate-400 w-8 text-right">0%</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="font-semibold text-slate-800 mb-6">Version History</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div><p class="text-sm font-semibold text-slate-800">v1.4.2</p><p class="text-[10px] text-slate-400">Aug 28, 2026</p></div>
+                            <span class="px-2 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-medium rounded border border-emerald-100">Production</span>
+                        </div>
+                        <div class="flex justify-between items-start opacity-60">
+                            <div><p class="text-sm font-semibold text-slate-800">v1.4.1</p><p class="text-[10px] text-slate-400">Jul 12, 2026</p></div>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-medium rounded border border-slate-200">Archived</span>
+                        </div>
+                        <div class="flex justify-between items-start opacity-60">
+                            <div><p class="text-sm font-semibold text-slate-800">v1.3.0</p><p class="text-[10px] text-slate-400">May 03, 2026</p></div>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-medium rounded border border-slate-200">Archived</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
