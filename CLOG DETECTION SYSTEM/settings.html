@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Drainage Clog Detection System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] flex h-screen overflow-hidden text-slate-800">
+
+    <aside class="w-64 flex-shrink-0 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
+        <div>
+            <div class="p-6 mb-2">
+                <h1 class="text-lg font-semibold leading-tight">Drainage Clog<br>Detection System</h1>
+                <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">DRRM Monitoring</p>
+            </div>
+            <nav class="flex-1 px-3 space-y-1">
+                <a href="overview.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Overview</a>
+                <a href="locations.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Drainage Locations</a>
+                <a href="telemetry.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Live Telemetry</a>
+                <a href="alerts.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Alerts</a>
+                <a href="analytics.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">ML Analytics</a>
+                <a href="settings.html" aria-current="page" class="flex items-center px-4 py-2.5 bg-[#2563eb] text-white text-sm font-medium rounded-md shadow-sm mt-4">Settings</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="min-w-0 flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
+        <header class="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+            <div class="text-xs font-bold text-slate-400 tracking-widest uppercase">Pasig City • Drainage Network</div>
+            <div class="flex items-center text-xs font-medium text-emerald-600"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>Synced just now</div>
+        </header>
+
+        <div class="p-8 max-w-7xl mx-auto w-full space-y-6">
+            <div>
+                <h2 class="text-2xl font-semibold text-slate-800">Settings</h2>
+                <p class="text-sm text-slate-500 mt-1">Manage your profile, password, system information, and account access.</p>
+            </div>
+
+            <!-- Profile Information -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="font-semibold text-slate-800 mb-4">Profile Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name</label>
+                        <input type="text" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm text-slate-700 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Role</label>
+                        <input type="text" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm text-slate-700 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+                        <input type="email" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm text-slate-700 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Number</label>
+                        <input type="text" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm text-slate-700 focus:outline-none focus:border-blue-500">
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button type="button" class="bg-[#2563eb] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors" onclick="showMessage('Profile updated')">Save Changes</button>
+                </div>
+            </div>
+
+            <!-- Change Password -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="font-semibold text-slate-800 mb-4">Change Password</h3>
+                <div class="grid grid-cols-1 gap-4 max-w-md">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Current Password</label>
+                        <input type="password" placeholder="Enter current password" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">New Password</label>
+                        <input type="password" placeholder="Enter new password" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Confirm New Password</label>
+                        <input type="password" placeholder="Type new password again" class="w-full px-3 py-2 border border-slate-200 rounded-md text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                </div>
+                <div class="mt-4 flex">
+                    <button type="button" class="border border-slate-300 text-slate-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-50 transition-colors" onclick="showMessage('Password changed safely')">Update Password</button>
+                </div>
+            </div>
+
+            <!-- System Info and Log Out -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- About / System Info -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="font-semibold text-slate-800 mb-3">About / System Info</h3>
+                    <p class="text-sm text-slate-600 mb-4">The Drainage Clog Detection System monitors drainage sensor data, identifies possible clogs and rising water levels, and helps DRRM staff coordinate a timely response.</p>
+                    <p class="text-sm text-slate-700 mb-1"><strong>Version:</strong> 2.4.1</p>
+                    <p class="text-sm text-slate-700"><strong>Last Update:</strong> September 2026</p>
+                </div>
+
+                <!-- Log Out Box -->
+                <div class="bg-red-50 p-6 rounded-xl border border-red-100 flex flex-col justify-center items-start">
+                    <h3 class="text-lg font-semibold text-red-800 mb-2">Log Out</h3>
+                    <p class="text-sm text-red-600 mb-4">Safely leave the system on this device. You will need your password to get back in.</p>
+                    <button type="button" class="bg-red-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition-colors shadow-sm" onclick="window.location.href='login.html'">Log Out Now</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Simple Message Box (hidden by default) -->
+    <div id="messageBox" role="status" aria-live="polite" class="fixed bottom-5 right-5 bg-[#112a46] text-white px-6 py-3 rounded-md shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none">
+        <span id="messageText">Done!</span>
+    </div>
+
+    <script>
+        function showMessage(message) {
+            const messageBox = document.getElementById('messageBox');
+            document.getElementById('messageText').textContent = message;
+            messageBox.classList.remove('opacity-0', 'pointer-events-none');
+            window.setTimeout(() => {
+                messageBox.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

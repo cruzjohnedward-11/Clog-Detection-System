@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Drainage Clog Detection System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] flex h-screen overflow-hidden text-slate-800">
+
+    <aside class="w-64 flex-shrink-0 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
+        <div>
+            <div class="p-6 mb-2">
+                <h1 class="text-lg font-semibold leading-tight">Drainage Clog<br>Detection System</h1>
+                <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">DRRM Monitoring</p>
+            </div>
+            <nav class="flex-1 px-3 space-y-1">
+                <a href="overview.html" class="flex items-center px-4 py-2.5 bg-[#2563eb] text-white text-sm font-medium rounded-md shadow-sm">Overview</a>
+                <a href="locations.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Drainage Locations</a>
+                <a href="telemetry.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Live Telemetry</a>
+                <a href="alerts.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">Alerts</a>
+                <a href="analytics.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors">ML Analytics</a>
+                <a href="settings.html" class="flex items-center px-4 py-2.5 text-slate-300 hover:bg-[#1e3a5f] hover:text-white text-sm font-medium rounded-md transition-colors mt-4">Settings</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="min-w-0 flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
+        <header class="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+            <div class="text-xs font-bold text-slate-400 tracking-widest uppercase">Pasig City • Drainage Network</div>
+            <div class="flex items-center text-xs font-medium text-emerald-600"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>Synced just now</div>
+        </header>
+
+        <div class="p-8 max-w-7xl mx-auto w-full space-y-6">
+            <div>
+                <h2 class="text-2xl font-semibold text-slate-800">Monitoring Dashboard</h2>
+                <p class="text-sm text-slate-500 mt-1">Network conditions and clog detection overview for the last 24 hours.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-medium text-slate-500 mb-1">Monitored Nodes</h3>
+                    <div class="text-3xl font-bold text-slate-800">0</div>
+                    <p class="text-xs text-slate-400 mt-2">Across 0 barangays</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-emerald-500"></div>
+                    <h3 class="text-sm font-medium text-slate-500 mb-1">Normal</h3>
+                    <div class="text-3xl font-bold text-slate-800">0</div>
+                    <p class="text-xs text-slate-400 mt-2">0% of network</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-amber-500"></div>
+                    <h3 class="text-sm font-medium text-slate-500 mb-1">On Watch</h3>
+                    <div class="text-3xl font-bold text-slate-800">0</div>
+                    <p class="text-xs text-slate-400 mt-2">Needs observation</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-red-500"></div>
+                    <h3 class="text-sm font-medium text-slate-500 mb-1">Critical</h3>
+                    <div class="text-3xl font-bold text-slate-800">0</div>
+                    <p class="text-xs text-slate-400 mt-2">Action required</p>
+                </div>
+            </div>
+
+            <div class="flex space-x-6 text-sm font-medium">
+                <div class="text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">Average Water Level 0%</div>
+                <div class="text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Detection Accuracy 0%</div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-2 flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-semibold text-slate-800">24h Water Level Trend</h3>
+                        <span class="text-xs text-slate-400">Network average</span>
+                    </div>
+                    <div class="flex-1 border-t border-b border-slate-100 relative min-h-[200px]">
+                        <div class="absolute inset-0 flex flex-col justify-between py-4 text-[10px] text-slate-400">
+                            <div class="w-full border-b border-slate-100 flex items-center"><span class="bg-white pr-2 -mt-2">1.5 m</span></div>
+                            <div class="w-full border-b border-slate-100 flex items-center"><span class="bg-white pr-2 -mt-2">1.0 m</span></div>
+                            <div class="w-full border-b border-slate-100 flex items-center"><span class="bg-white pr-2 -mt-2">0.5 m</span></div>
+                            <div class="w-full flex items-center"><span class="bg-white pr-2 -mt-2">0.0 m</span></div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-[10px] text-slate-400 mt-2 px-6">
+                        <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>Now</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center justify-center">
+                    <h3 class="font-semibold text-slate-800 self-start mb-8">Sensor Load Gauge</h3>
+                    <div class="w-40 h-40 rounded-full border-[12px] border-blue-200 flex items-center justify-center relative mb-4">
+                        <span class="text-4xl font-bold text-slate-700">0%</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-auto">No incoming load</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="font-semibold text-slate-800">Location Status</h3>
+                        <span class="text-xs text-slate-400">0 of 0 nodes shown</span>
+                </div>
+                <div class="divide-y divide-slate-100">
+                    <div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div class="text-sm font-medium text-slate-700">Pinagbuhatan — Node 03</div>
+                        <div class="ml-auto w-16 text-right text-sm text-slate-500">0.0 m</div>
+                        <div class="w-20 text-center px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
+                    </div>
+                    <div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div class="text-sm font-medium text-slate-700">Kapitolyo — Node 08</div>
+                        <div class="ml-auto w-16 text-right text-sm text-slate-500">0.0 m</div>
+                        <div class="w-20 text-center px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
+                    </div>
+                    <div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
+                        <div class="text-sm font-medium text-slate-700">Rosario — Node 14</div>
+                        <div class="ml-auto w-16 text-right text-sm text-slate-500">0.0 m</div>
+                        <div class="w-20 text-center px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
+                    </div>
+                    <div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors opacity-60">
+                        <div class="text-sm font-medium text-slate-700">Manggahan — Node 21</div>
+                        <div class="ml-auto w-16 text-right text-sm text-slate-400">0.0 m</div>
+                        <div class="w-20 text-center px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
