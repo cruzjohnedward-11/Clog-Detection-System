@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Drainage Clog Detection System</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="role-routing.js" defer></script>
 </head>
 <body class="bg-[#f8fafc] flex h-screen overflow-hidden text-slate-800">
 
-    <aside class="w-64 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
+    <aside class="w-64 flex-shrink-0 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
         <div>
             <div class="p-6 mb-2">
                 <h1 class="text-lg font-semibold leading-tight">Drainage Clog<br>Detection System</h1>
@@ -26,7 +27,7 @@
         </div>
     </aside>
 
-    <main class="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
+    <main class="min-w-0 flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
         <header class="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
             <div class="text-xs font-bold text-slate-400 tracking-widest uppercase">Pasig City • Drainage Network</div>
             <div class="flex items-center text-xs font-medium text-emerald-600"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>Synced just now</div>
@@ -37,6 +38,19 @@
                 <h2 class="text-2xl font-semibold text-slate-800">Settings</h2>
                 <p class="text-sm text-slate-500 mt-1">Manage your profile, password, system information, and account access.</p>
             </div>
+
+            <section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm" aria-labelledby="drrmRequestsHeading">
+                <div class="flex flex-wrap justify-between items-start gap-3 mb-4">
+                    <div>
+                        <h3 id="drrmRequestsHeading" class="font-semibold text-slate-800">DRRM Officer Requests</h3>
+                        <p class="text-sm text-slate-500 mt-1">Profile updates and password reset requests submitted by officers.</p>
+                    </div>
+                    <span id="drrmRequestCount" class="text-xs text-slate-500">0 requests</span>
+                </div>
+                <div id="drrmRequestList" class="space-y-3" aria-live="polite">
+                    <p class="text-sm text-slate-500">No requests from DRRM Officers yet.</p>
+                </div>
+            </section>
 
             <!-- Profile Information -->
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
@@ -100,12 +114,21 @@
                 <div class="bg-red-50 p-6 rounded-xl border border-red-100 flex flex-col justify-center items-start">
                     <h3 class="text-lg font-semibold text-red-800 mb-2">Log Out</h3>
                     <p class="text-sm text-red-600 mb-4">Safely leave the system on this device. You will need your password to get back in.</p>
-                    <button type="button" class="bg-red-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition-colors shadow-sm" onclick="window.location.href='login.html'">Log Out Now</button>
+                    <button type="button" class="bg-red-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition-colors shadow-sm" onclick="openLogoutDialog()">Log Out Now</button>
                 </div>
             </div>
 
         </div>
     </main>
+
+    <dialog id="logoutDialog" class="w-full max-w-sm rounded-xl border border-slate-200 p-6 shadow-2xl backdrop:bg-slate-900/50" aria-labelledby="logoutDialogTitle">
+        <h2 id="logoutDialogTitle" class="text-lg font-semibold text-slate-800">Confirm log out</h2>
+        <p class="mt-2 text-sm text-slate-600">Are you sure you want to log out?</p>
+        <div class="mt-6 flex justify-end gap-3">
+            <form method="dialog"><button class="border border-slate-300 text-slate-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-50">Cancel</button></form>
+            <button type="button" class="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700" onclick="logOut()">Log Out</button>
+        </div>
+    </dialog>
 
     <!-- Simple Message Box (hidden by default) -->
     <div id="messageBox" role="status" aria-live="polite" class="fixed bottom-5 right-5 bg-[#112a46] text-white px-6 py-3 rounded-md shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none">
@@ -113,6 +136,19 @@
     </div>
 
     <script>
+        function openLogoutDialog() {
+            document.getElementById('logoutDialog').showModal();
+        }
+
+        async function logOut() {
+            try {
+                await fetch('/api/logout', { method: 'POST' });
+            } finally {
+                sessionStorage.removeItem('userRole');
+                window.location.href = 'login.html';
+            }
+        }
+
         function showMessage(message) {
             const messageBox = document.getElementById('messageBox');
             document.getElementById('messageText').textContent = message;
@@ -121,6 +157,95 @@
                 messageBox.classList.add('opacity-0', 'pointer-events-none');
             }, 2500);
         }
+
+        async function renderDrrmRequests() {
+            const requestList = document.getElementById('drrmRequestList');
+            const requestCount = document.getElementById('drrmRequestCount');
+            requestList.textContent = 'Loading requests...';
+
+            try {
+                const response = await fetch('/api/account-requests');
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || 'Unable to load requests.');
+
+                const requests = Array.isArray(result.requests) ? result.requests : [];
+                requestCount.textContent = `${requests.length} request${requests.length === 1 ? '' : 's'}`;
+                requestList.replaceChildren();
+
+                if (requests.length === 0) {
+                    const emptyState = document.createElement('p');
+                    emptyState.className = 'text-sm text-slate-500';
+                    emptyState.textContent = 'No requests from DRRM Officers yet.';
+                    requestList.append(emptyState);
+                    return;
+                }
+
+                requests.forEach((request) => {
+                    const article = document.createElement('article');
+                    article.className = 'border border-slate-200 rounded-lg p-4';
+
+                    const header = document.createElement('div');
+                    header.className = 'flex flex-wrap items-start justify-between gap-3';
+
+                    const title = document.createElement('h4');
+                    title.className = 'text-sm font-semibold text-slate-800';
+                    title.textContent = `${request.currentName || 'DRRM Officer'}${request.currentRole ? ` · ${request.currentRole}` : ''}`;
+
+                    const status = document.createElement('span');
+                    status.className = 'px-2 py-1 bg-amber-50 text-amber-700 text-xs font-medium rounded-full';
+                    status.textContent = request.status || 'Pending';
+                    header.append(title, status);
+                    article.append(header);
+
+                    if (request.submittedAt) {
+                        const submitted = document.createElement('p');
+                        submitted.className = 'text-xs text-slate-500 mt-2';
+                        submitted.textContent = `Submitted ${new Date(request.submittedAt).toLocaleString()}`;
+                        article.append(submitted);
+                    }
+
+                    const details = document.createElement('dl');
+                    details.className = 'grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-4';
+                    const values = [
+                        ['Current contact', request.currentContact],
+                        ['Requested name', request.requestedName],
+                        ['Requested role', request.requestedRole],
+                        ['Requested contact', request.requestedContact],
+                        ['Requested email', request.requestedEmail],
+                        ['Reason', request.changeReason]
+                    ];
+
+                    values.forEach(([label, value]) => {
+                        if (!value) return;
+                        const item = document.createElement('div');
+                        const term = document.createElement('dt');
+                        term.className = 'text-xs text-slate-500';
+                        term.textContent = label;
+                        const description = document.createElement('dd');
+                        description.className = 'text-sm text-slate-700 mt-1 break-words';
+                        description.textContent = value;
+                        item.append(term, description);
+                        details.append(item);
+                    });
+
+                    if (request.passwordReset) {
+                        const resetRequest = document.createElement('p');
+                        resetRequest.className = 'text-sm font-medium text-blue-700 mt-4';
+                        resetRequest.textContent = 'Password reset requested';
+                        article.append(resetRequest);
+                    }
+
+                    if (details.childElementCount > 0) article.append(details);
+                    requestList.append(article);
+                });
+            } catch (error) {
+                console.error('Could not load DRRM account requests:', error);
+                requestCount.textContent = 'Unavailable';
+                requestList.textContent = 'Could not load requests. Check the Node.js server and MariaDB connection.';
+            }
+        }
+
+        renderDrrmRequests();
     </script>
 </body>
 </html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#112a46">
+    <title>Officer Settings | ClogDetection</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="role-routing.js" defer></script>
+</head>
+<body class="settings-drrm">
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Application navigation">
+            <div class="brand">
+                <strong>Drainage Clog<br>Detection System</strong>
+                <span>Pasig City DRRM Monitoring</span>
+            </div>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="overview.html">Overview</a>
+                <a href="locations.html">Drainage Locations</a>
+                <a href="telemetry.html">Live Telemetry</a>
+                <a href="alerts.html">Alerts</a>
+                <a href="analytics.html">ML Analytics</a>
+                <a href="settingsDRRM.html" aria-current="page">Settings</a>
+            </nav>
+            <p class="sidebar-note">Real-time drainage conditions for a safer, more prepared Pasig City.</p>
+        </aside>
+
+        <div class="workspace">
+            <header class="topbar">
+                <div class="network-label">Pasig City / Drainage Network</div>
+                <div class="sync-state">Network status: synced</div>
+            </header>
+
+            <main>
+                <section class="page-heading" aria-labelledby="page-title">
+                    <p class="eyebrow">Account &amp; system</p>
+                    <h1 id="page-title">Officer Settings</h1>
+                    <p>Submit account updates and access current information about the drainage monitoring system.</p>
+                </section>
+
+                <div class="settings-layout">
+                    <div class="primary-column">
+                        <section class="panel" aria-labelledby="account-heading">
+                            <div class="panel-heading">
+                                <h2 id="account-heading">Account Management</h2>
+                                <p>Account changes are reviewed by the IT Admin. Current account details are read-only.</p>
+                            </div>
+
+                            <form id="accountRequestForm">
+                                <fieldset>
+                                    <legend class="subheading">Current Account Information</legend>
+                                    <div class="field-grid">
+                                        <div class="field">
+                                            <label for="currentName">Name</label>
+                                            <input id="currentName" name="currentName" type="text" value="Officer Name" readonly>
+                                        </div>
+                                        <div class="field">
+                                            <label for="currentRole">Role</label>
+                                            <input id="currentRole" name="currentRole" type="text" value="DRRM Officer" readonly>
+                                        </div>
+                                        <div class="field">
+                                            <label for="currentContact">Contact Number</label>
+                                            <input id="currentContact" name="currentContact" type="tel" value="+63 9XX XXX XXXX" readonly>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend class="subheading">Requested Profile Changes</legend>
+                                    <div class="field-grid">
+                                        <div class="field">
+                                            <label for="requestedName">Requested Name</label>
+                                            <input id="requestedName" name="requestedName" type="text" autocomplete="name" placeholder="Enter requested name">
+                                        </div>
+                                        <div class="field">
+                                            <label for="requestedRole">Requested Role</label>
+                                            <input id="requestedRole" name="requestedRole" type="text" placeholder="Enter requested role">
+                                        </div>
+                                        <div class="field">
+                                            <label for="requestedContact">Requested Contact Number</label>
+                                            <input id="requestedContact" name="requestedContact" type="tel" autocomplete="tel" placeholder="Enter requested contact number">
+                                        </div>
+                                        <div class="field">
+                                            <label for="requestedEmail">Requested Email Address</label>
+                                            <input id="requestedEmail" name="requestedEmail" type="email" autocomplete="email" placeholder="Enter requested email">
+                                        </div>
+                                        <div class="field field-full">
+                                            <label for="changeReason">Reason for Change</label>
+                                            <textarea id="changeReason" name="changeReason" placeholder="Briefly explain the requested changes"></textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <legend class="subheading">Password Reset</legend>
+                                    <div class="reset-option">
+                                        <input id="requestPasswordReset" name="requestPasswordReset" type="checkbox">
+                                        <div>
+                                            <label for="requestPasswordReset">Include a password reset request</label>
+                                            <p>The IT Admin will verify your identity and provide reset instructions through your registered contact channel.</p>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <div class="form-actions">
+                                    <button class="button button-primary" type="submit">Submit Request to Admin</button>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+
+                    <div class="secondary-column">
+                        <section class="panel" aria-labelledby="about-heading">
+                            <div class="panel-heading">
+                                <h2 id="about-heading">About / System Info</h2>
+                            </div>
+                            <p class="about-copy">The Drainage Clog Detection System monitors drainage sensor data, identifies possible clogs and rising water levels, and helps DRRM staff coordinate a timely response.</p>
+                            <dl class="info-list">
+                                <div class="info-row"><dt>Version</dt><dd>2.4.1</dd></div>
+                                <div class="info-row"><dt>Last Update</dt><dd>September 2026</dd></div>
+                            </dl>
+                        </section>
+
+                        <section class="panel logout-panel" aria-labelledby="logout-heading">
+                            <h2 id="logout-heading">Log Out</h2>
+                            <p>End your current session on this device.</p>
+                            <button class="button button-danger" id="logoutButton" type="button">Log Out</button>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <dialog id="logoutDialog" aria-labelledby="logoutDialogTitle" aria-describedby="logoutDialogDescription">
+        <h2 id="logoutDialogTitle">Confirm log out</h2>
+        <p id="logoutDialogDescription">Are you sure you want to log out?</p>
+        <div class="dialog-actions">
+            <form method="dialog"><button class="button button-quiet" value="cancel">Cancel</button></form>
+            <button class="button button-danger" id="confirmLogout" type="button">Log Out</button>
+        </div>
+    </dialog>
+
+    <script>
+        const accountRequestForm = document.getElementById('accountRequestForm');
+        const logoutDialog = document.getElementById('logoutDialog');
+        const accountRequestsKey = 'drrmAccountRequests';
+
+        accountRequestForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(accountRequestForm);
+            const request = {
+                currentName: formData.get('currentName'),
+                currentRole: formData.get('currentRole'),
+                currentContact: formData.get('currentContact'),
+                requestedName: formData.get('requestedName').trim(),
+                requestedRole: formData.get('requestedRole').trim(),
+                requestedContact: formData.get('requestedContact').trim(),
+                requestedEmail: formData.get('requestedEmail').trim(),
+                changeReason: formData.get('changeReason').trim(),
+                passwordReset: formData.get('requestPasswordReset') === 'on'
+            };
+            const hasProfileChanges = [
+                request.requestedName,
+                request.requestedRole,
+                request.requestedContact,
+                request.requestedEmail
+            ].some((value) => value !== '');
+
+            if (!hasProfileChanges && !request.passwordReset) {
+                window.alert('Enter at least one profile change or select a password reset request.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/account-requests', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(request)
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || 'Request submission failed.');
+
+                accountRequestForm.reset();
+                window.alert('Your request has been submitted to the IT Admin.');
+            } catch (error) {
+                console.error('Account request submission failed:', error);
+                window.alert(error.message || 'The request could not be submitted. Check the server connection.');
+            }
+        });
+
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            logoutDialog.showModal();
+        });
+
+        document.getElementById('confirmLogout').addEventListener('click', async () => {
+            try {
+                await fetch('/api/logout', { method: 'POST' });
+            } finally {
+                window.sessionStorage.removeItem('userRole');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -6,10 +6,11 @@
     <title>Dashboard - Drainage Clog Detection System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="role-routing.js" defer></script>
 </head>
 <body class="bg-[#f8fafc] flex h-screen overflow-hidden text-slate-800">
 
-    <aside class="w-64 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
+    <aside class="w-64 flex-shrink-0 bg-[#112a46] text-white flex flex-col justify-between h-full shadow-xl z-10">
         <div>
             <div class="p-6 mb-2">
                 <h1 class="text-lg font-semibold leading-tight">Drainage Clog<br>Detection System</h1>
@@ -26,7 +27,7 @@
         </div>
     </aside>
 
-    <main class="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
+    <main class="min-w-0 flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
         <header class="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
             <div class="text-xs font-bold text-slate-400 tracking-widest uppercase">Pasig City • Drainage Network</div>
             <div class="flex items-center text-xs font-medium text-emerald-600"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>Synced just now</div>
@@ -41,25 +42,25 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
                     <h3 class="text-sm font-medium text-slate-500 mb-1">Monitored Nodes</h3>
-                    <div class="text-3xl font-bold text-slate-800">24</div>
-                    <p class="text-xs text-slate-400 mt-2">Across 8 barangays</p>
+                    <div class="text-3xl font-bold text-slate-800">0</div>
+                    <p class="text-xs text-slate-400 mt-2">Across 0 barangays</p>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-emerald-500"></div>
                     <h3 class="text-sm font-medium text-slate-500 mb-1">Normal</h3>
-                    <div class="text-3xl font-bold text-slate-800">18</div>
-                    <p class="text-xs text-slate-400 mt-2">75% of network</p>
+                    <div class="text-3xl font-bold text-slate-800">0</div>
+                    <p class="text-xs text-slate-400 mt-2">0% of network</p>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-amber-500"></div>
                     <h3 class="text-sm font-medium text-slate-500 mb-1">On Watch</h3>
-                    <div class="text-3xl font-bold text-slate-800">4</div>
+                    <div class="text-3xl font-bold text-slate-800">0</div>
                     <p class="text-xs text-slate-400 mt-2">Needs observation</p>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
                     <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-red-500"></div>
                     <h3 class="text-sm font-medium text-slate-500 mb-1">Critical</h3>
-                    <div class="text-3xl font-bold text-slate-800">2</div>
+                    <div class="text-3xl font-bold text-slate-800">0</div>
                     <p class="text-xs text-slate-400 mt-2">Action required</p>
                 </div>
             </div>
@@ -100,28 +101,28 @@
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
                     <h3 class="font-semibold text-slate-800">Location Status</h3>
-                    <span class="text-xs text-slate-400">4 of 24 nodes shown</span>
+                        <span class="text-xs text-slate-400">0 of 0 nodes shown</span>
                 </div>
                 <div class="divide-y divide-slate-100">
-                    <div class="px-6 py-4 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                    <div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
                         <div class="text-sm font-medium text-slate-700">Pinagbuhatan — Node 03</div>
-                        <div class="text-sm text-slate-500">0.0 m</div>
-                        <div class="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-medium rounded-full border border-emerald-100">Normal</div>
+                        <div class="ml-auto w-16 text-right text-sm text-slate-500">0.0 m</div>
+                        <div class="w-20 text-center px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
                     </div>
-                    <div class="px-6 py-4 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                    <div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
                         <div class="text-sm font-medium text-slate-700">Kapitolyo — Node 08</div>
-                        <div class="text-sm text-slate-500">0.0 m</div>
-                        <div class="px-3 py-1 bg-amber-50 text-amber-700 text-xs font-medium rounded-full border border-amber-100">Watch</div>
+                        <div class="ml-auto w-16 text-right text-sm text-slate-500">0.0 m</div>
+                        <div class="w-20 text-center px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
                     </div>
-                    <div class="px-6 py-4 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                    <div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
                         <div class="text-sm font-medium text-slate-700">Rosario — Node 14</div>
-                        <div class="text-sm text-slate-500">0.0 m</div>
-                        <div class="px-3 py-1 bg-red-50 text-red-700 text-xs font-medium rounded-full border border-red-100">Clog Detected</div>
+                        <div class="ml-auto w-16 text-right text-sm text-slate-500">0.0 m</div>
+                        <div class="w-20 text-center px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
                     </div>
-                    <div class="px-6 py-4 flex justify-between items-center hover:bg-slate-50 transition-colors opacity-60">
+                    <div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors opacity-60">
                         <div class="text-sm font-medium text-slate-700">Manggahan — Node 21</div>
-                        <div class="text-sm text-slate-400">—</div>
-                        <div class="px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
+                        <div class="ml-auto w-16 text-right text-sm text-slate-400">0.0 m</div>
+                        <div class="w-20 text-center px-3 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded-full border border-slate-200">Offline</div>
                     </div>
                 </div>
             </div>
